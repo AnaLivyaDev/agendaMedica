@@ -13,7 +13,9 @@ function salvarCadastro(event) {
     const especialidade = document.getElementById("especialidade").value;
 
 
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+
+
+    console.log('aaaaaaaaaaaaaaa/nufejneueo/aaaaaaaaaaaaaaaaaaaaaaaaaaaa')
 
     // Validação
     if (!nome || !crm || !email || !senha || !especialidade) {
