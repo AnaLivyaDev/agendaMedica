@@ -90,34 +90,56 @@ a:hover {
     opacity: 0.7;
 }
 
+/* Container principal dos cards */
+.container {
+    width: 80vw;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #FFFFFF;
+}
 
-#consultas-container {
+/* Título da seção */
+.titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #211157;
+    font-size: 2.5vw;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Container onde os cards ficam */
+#consultas-containers {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
+    justify-content: flex-start;
+    padding: 10px;
 }
 
-.card {
+/* Estilo de cada card */
+.card-consulta {
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px 20px;
-    width: 250px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s ease;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+.card-consulta:hover {
+    transform: scale(1.03);
 }
 
-.card h2 {
-    margin-top: 0;
-    color: #007BFF;
+.card-consulta h2 {
+    color: #211157;
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
-.card p {
-    margin: 5px 0;
+.card-consulta p {
+    font-size: 0.95em;
+    margin-bottom: 5px;
+    color: #333;
 }

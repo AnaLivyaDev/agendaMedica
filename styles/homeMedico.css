@@ -73,6 +73,21 @@ body {
     padding: 50px;
 }
 
+/* CARD ao redor do formulário */
+.form-card {
+    background-color: #ffffffc9;
+    /* leve transparência branca */
+    border-radius: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 400px;
+    height: 80vh;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* estilização do formulário */
 
 form {
@@ -98,8 +113,11 @@ form textarea {
     color: #211157;
     outline: unset;
     padding: 0 0 0 20px;
-    width: 300px;
-    height: 50px;
+    width: 16vw;
+    max-width: 300px;
+    /* ✅ evita exageros em telas muito grandes */
+    min-width: 200px;
+    height: 5vh;
     border: 1px solid #383a65;
     border-radius: 20px;
     margin-bottom: 10px;
@@ -121,6 +139,7 @@ label {
     background-color: #383a65;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8vw;
     cursor: pointer;
     text-align: center;
     width: 9.5vw;

@@ -21,47 +21,49 @@
     <br>
     <!--div que vai abranger todo o conteúdo-->
     <div class="container">
-        <!--início do formulário-->
-        <form>
-            <!--os botões serão separados em divs-->
-            <div>
-                <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
-                <label id="labelNome" for="nome">Nome</label>
-                <input type="text" id="nome" placeholder="Digite o seu nome" autocomplete="off" required>
-            </div>
-            <div>
-                <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
-                <label id="labelCpf" for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o seu CPF" autocomplete="off"
-                    required>
-            </div>
-            <div>
-                <label id="labelEmail" for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Digite seu email com atenção" autocomplete="off"
-                    required>
-            </div>
-            <div>
-                <label id="labelSenha" for="senha">Senha</label>
-                <input type="password" id="senha" name="senha" maxlength="8" required>
-            </div>
-            <div class="container-botoes">
-                <button type="button" class="botaoCadastra" onclick="salvarCadastroPaciente()">
-                    <strong>
-                        CADASTRAR
-                    </strong>
-                </button>
-                <!--div para contruir uma linha vertical-->
-                <div class="linhaVert"></div>
-                <button type="button" class="botaoEntrar">
-                    <!--botão com link para a página de login-->
-                    <a href="../pages/loginPaciente.html">
-                        <strong class="botaoEntrar">
-                            Entrar
+        <div class="form-card">
+            <!--início do formulário-->
+            <form>
+                <!--os botões serão separados em divs-->
+                <div>
+                    <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
+                    <label id="labelNome" for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite o seu nome" autocomplete="off" required>
+                </div>
+                <div>
+                    <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
+                    <label id="labelCpf" for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o seu CPF"
+                        autocomplete="off" required>
+                </div>
+                <div>
+                    <label id="labelEmail" for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu email com atenção"
+                        autocomplete="off" required>
+                </div>
+                <div>
+                    <label id="labelSenha" for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" maxlength="8" required>
+                </div>
+                <div class="container-botoes">
+                    <button type="button" class="botaoCadastra" onclick="salvarCadastroPaciente()">
+                        <strong>
+                            CADASTRAR
                         </strong>
-                    </a>
-                </button>
-            </div>
-        </form>
+                    </button>
+                    <!--div para contruir uma linha vertical-->
+                    <div class="linhaVert"></div>
+                    <button type="button" class="botaoEntrar">
+                        <!--botão com link para a página de login-->
+                        <a href="../pages/loginPaciente.html">
+                            <strong class="botaoEntrar">
+                                Entrar
+                            </strong>
+                        </a>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
     <!--script para validar as respostas do formulário-->
     <script defer src="../scripts/scriptPacienteCad.js"></script>
