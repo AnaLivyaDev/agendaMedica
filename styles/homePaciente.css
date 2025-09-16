@@ -134,6 +134,11 @@ label {
     transition: 0.5s;
 }
 
+.botaoCadastra:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
 .linhaVert {
     display: inline-block;
     width: 2px;
@@ -149,6 +154,11 @@ label {
     background: none;
     cursor: pointer;
     color: black;
+    transition: 0.5s;
+}
+
+.botaoEntrar:hover {
+    opacity: 0.5;
 }
 
 a {
