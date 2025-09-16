@@ -12,6 +12,9 @@ function salvarCadastro(event) {
 
     const especialidade = document.getElementById("especialidade").value;
 
+
+
+
     // Validação
     if (!nome || !crm || !email || !senha || !especialidade) {
         alert("Por favor, preencha todos os campos obrigatórios.");
