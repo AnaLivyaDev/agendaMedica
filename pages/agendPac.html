@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento do Paciente</title>
+    <link rel="stylesheet" href="../styles/angendPac.css">
+</head>
+
+<body>
+    <!--menu onde vai ficar os links para as outras páginas-->
+    <div class="menu">
+        <img src="../imagens/medical-symbol.png" class="imgLogo">
+        <div class="links">
+            <!--vai para a página do perfil do paciente-->
+            <a href="../pages/perfilPac.html">perfil</a>
+            <hr>
+            <!--vai para a página de agendar as consultas-->
+            <a href="../pages/agendPac.html">agendar</a>
+            <hr>
+            <!--vai para a página das consultas que o paciente marcou-->
+            <a href="../pages/consultasPac.html">minhas consultas</a>
+            <hr>
+            <!--vai para a página dos relatórios do paciente-->
+            <a href="../pages/relatorPac.html">meus relatórios</a>
+            <hr>
+            <!--vai para a página de contatos-->
+            <a href="../pages/contatosPac.html">contatos</a>
+            <hr>
+
+            <a href="../pages/loginPaciente.html" class="linkVoltar"><img src="../imagens/botaoVoltar.png" alt="img"
+                    class="botaoVoltar"></a>
+
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="titulo">AGENDAMENTO</h1>
+        <div class="card">
+            <h2 class="text">Agende sua consulta de forma rápida e prática pelo nosso canal de atendimento.</h2>
+            <!--div criada para alinhar o formulário-->
+            <div class="alinhar-form">
+                <!--um formulário que vai pegar do banco de dados do médico para a melhor escolha do paciente-->
+                <form id="Formulario">
+                    <div>
+                        <!--as entradas irão ter a especialidade; o médico; horário-->
+                        <label id="escolhaEspc" for="especialidade">Escolha a especialidade do seu médico</label>
+                        <select id="especialidade" onchange="carregarMedico()">
+                            <option value="">Selecione uma especialidade</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label id="escolhaMed" for="medicos">Escolha um médico de sua preferência</label>
+                        <select id="medicos" onchange="carregarHorario()">
+                            <option value="">Selecione uma especialidade primeiro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label id="escolhaHoras" for="Horas">Escolha um horário de sua preferência</label>
+                        <select id="horas">
+                            <option value="">Selecione um médico primeiro</option>
+                        </select>
+                    </div>
+
+                    <!--botão que vai salvar o seu agendamento-->
+                    <button class="botaoSalvar" onclick="salvarAgendamento(event)"><strong>AGENDAR</strong> </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script defer src="../localStorage/agendPacStorage.js"></script>
+</body>
+
+</html>
