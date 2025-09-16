@@ -163,5 +163,5 @@ h1 {
 /* transição que diminui a ocopacidade */
 
 .fa-solid.fa-envelope:hover {
-    transform: scale(1.03);
+    color: #ffffff85;
 }
