@@ -141,3 +141,29 @@ a:hover {
   margin-bottom: 5px;
   color: #333;
 }
+
+/* estilização do botão + */
+/* Botão "+" fixado na parte inferior direita */
+.botao-adicionar {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: #211157;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.botao-adicionar:hover {
+  background-color: #3c2a84;
+  transform: scale(1.1);
+}
