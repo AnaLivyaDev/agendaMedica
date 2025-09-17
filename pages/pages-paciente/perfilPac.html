@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultas do Paciente</title>
-    <link rel="stylesheet" type="text/css" href="../styles/consultasPac.css">
+    <title>Perfil do Paciente</title>
+    <link rel="stylesheet" href="../styles/perfilPac.css" type="text/css">
 </head>
 
 <body>
@@ -22,19 +22,21 @@
             <!--vai para a página de contatos-->
             <a href="../pages/contatosPac.html">contatos</a>
             <hr>
+
             <a href="../pages/loginPaciente.html" class="linkVoltar"><img src="../imagens/botaoVoltar.png" alt="img"
                     class="botaoVoltar"></a>
-
         </div>
     </div>
     <div class="container">
-        <h1 class="titulo">CONSULTAS AGENDADAS</h1>
-        <!--a separação das consultas será feita pelo javascript com estilização do css em um container-->
-        <div id="consultas-containers"></div>
-        <!-- Botão "+" para adicionar nova consulta -->
-        <a href="../pages/agendPac.html" class="botao-adicionar" title="Agendar nova consulta">+</a>
+        <h1 class="titulo">MEU PERFIL</h1>
+        <div class="perfil-box">
+            <p><strong>Nome:</strong> <span id="perfil-nome"></span></p>
+            <p><strong>CPF:</strong> <span id="perfil-cpf"></span></p>
+            <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+            <p><strong>Senha:</strong> <span id="perfil-senha"></span></p>
+        </div>
     </div>
-    <script defer src="../scripts/consultasPac.js"></script>
+    <script defer src="../localStorage/perfilPacStorage.js"></script>
 </body>
 
 </html>

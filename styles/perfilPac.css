@@ -109,3 +109,18 @@ h1 {
     margin-bottom: 20px;
     text-align: center;
 }
+
+.perfil-box {
+    background-color: #211157;
+    padding: 30px;
+    border-radius: 10px;
+    width: 60%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.perfil-box p {
+    font-size: 1.2vw;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
