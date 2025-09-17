@@ -91,4 +91,6 @@ function salvarAgendamento(event) {
     document.getElementById("especialidade").value = "";
     document.getElementById("medicos").innerHTML = '<option value="">-- Selecione --</option>';
     document.getElementById("horas").innerHTML = '<option value="">-- Selecione um médico primeiro --</option>';
+
+    window.location.href = "consultasPac.html";
 }

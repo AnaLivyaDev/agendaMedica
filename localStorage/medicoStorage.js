@@ -9,7 +9,7 @@ function salvarCadastro(event) {
     const horarioInput = document.getElementById("hora").value.trim();
     const horario = horarioInput.split(",").map(h => h.trim());
     let horariosArray = [];
-
+    
     const especialidade = document.getElementById("especialidade").value;
 
 
