@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Relatório do médico</title>
-    <link rel="stylesheet" href="../../styles/relatorioMed.css">
-</head>
+    <link rel="stylesheet" href="../../styles/relatorioMed.css" />
+  </head>
 
-<body>
+  <body>
     <!--menu onde vai ficar os links para as outras páginas-->
     <div class="menu">
-        <img src="../../imagens/medical-symbol.png" class="imgLogo">
-        <div class="links">
-            <!--vai para a página do perfil do paciente-->
-            <a href=".">perfil</a>
-            <hr>
-            <!--vai para a página das consultas que o paciente marcou-->
-            <a href=".">consultas</a>
-            <hr>
-            <!--vai para a página de contatos-->
-            <a href=".">contatos</a>
-            <hr>
-        </div>
+      <img src="../../imagens/medical-symbol.png" class="imgLogo" />
+      <div class="links">
+        <!--vai para a página do perfil do paciente-->
+        <a href="../pages-medico/perfilMed.html">perfil</a>
+        <hr />
+        <!--vai para a página das consultas que o paciente marcou-->
+        <a href="../pages-medico/relatorioMed.html">relatórios</a>
+        <hr />
+        <!--vai para a página de contatos-->
+        <a href="../pages-medico/contatosMed.html">contatos</a>
+        <hr />
+        <!--vai para a página para marcar os horários-->
+        <a href="../pages-medico/horariosMed.html">horários</a>
+        <hr />
+      </div>
     </div>
     <div class="container">
-        <h1 class="titulo">RELATÓRIO DAS SUAS CONSULTAS</h1>
-        <div id="relatorio-consultas"></div>
+      <h1 class="titulo">RELATÓRIO DAS SUAS CONSULTAS</h1>
+      <div id="relatorio-consultas"></div>
     </div>
 
     <script defer src="../../localStorage/relatorioMedStorage.js"></script>
-</body>
-
+  </body>
 </html>

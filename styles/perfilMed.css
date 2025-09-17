@@ -88,86 +88,39 @@ a:hover {
   opacity: 0.7;
 }
 
-/* Container principal dos cards */
+/* parte da direita do código */
 .container {
   width: 80vw;
-  padding: 40px;
-  overflow-y: auto;
+  height: 100vh;
   background-color: #ffffff;
-  /* Ajuste para rolagem */
-  height: 100vh; /* altura máxima visível */
-  overflow-y: auto; /* ativa a rolagem vertical */
-  padding-right: 10px; /*pra barra não encostar no card*/
-}
-
-/* Título da seção */
-.titulo {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #211157;
-  font-size: 2.5vw;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-/* Container onde os cards ficam */
-#consultas-containers {
+  padding-left: 30px;
+  padding-top: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Estilo de cada card */
-.card-consulta {
-  background-color: white;
-  border: 2px solid #ddd;
+h1 {
+  color: #211157;
+  font-size: 4vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.379);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.perfil-box {
+  background-color: #211157;
+  padding: 30px;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 280px;
-  transition: transform 0.3s ease;
+  width: 60%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.card-consulta:hover {
-  transform: scale(1.03);
-}
-
-.card-consulta h2 {
-  color: #211157;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.card-consulta p {
-  font-size: 0.95em;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-/* estilização do botão + */
-/* Botão "+" fixado na parte inferior direita */
-.botao-adicionar {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-color: #211157;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 60px;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 1000;
-}
-
-.botao-adicionar:hover {
-  background-color: #3c2a84;
-  transform: scale(1.1);
+.perfil-box p {
+  font-size: 1.2vw;
+  margin-bottom: 15px;
+  color: #ffffff;
 }

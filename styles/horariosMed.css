@@ -88,86 +88,104 @@ a:hover {
   opacity: 0.7;
 }
 
-/* Container principal dos cards */
+/* parte da direita do código */
 .container {
   width: 80vw;
-  padding: 40px;
-  overflow-y: auto;
+  height: 100vh;
   background-color: #ffffff;
-  /* Ajuste para rolagem */
-  height: 100vh; /* altura máxima visível */
-  overflow-y: auto; /* ativa a rolagem vertical */
-  padding-right: 10px; /*pra barra não encostar no card*/
+  padding-left: 30px;
+  padding-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Título da seção */
 .titulo {
-  font-family: Arial, Helvetica, sans-serif;
   color: #211157;
-  font-size: 2.5vw;
-  margin-bottom: 30px;
+  font-size: 4vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.379);
+  margin-bottom: 20px;
+}
+.card {
+  background: #f9f9ff;
+  border: 2px solid #211157;
+  border-radius: 15px;
+  padding: 20px;
+  width: 60%;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-/* Container onde os cards ficam */
-#consultas-containers {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: flex-start;
-  padding: 10px;
-}
-
-/* Estilo de cada card */
-.card-consulta {
-  background-color: white;
-  border: 2px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 280px;
-  transition: transform 0.3s ease;
+.card h2 {
+  margin-bottom: 15px;
+  color: #211157;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.card-consulta:hover {
-  transform: scale(1.03);
-}
-
-.card-consulta h2 {
-  color: #211157;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.card-consulta p {
-  font-size: 0.95em;
-  margin-bottom: 5px;
+.card label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
   color: #333;
 }
 
-/* estilização do botão + */
-/* Botão "+" fixado na parte inferior direita */
-.botao-adicionar {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background-color: #211157;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 60px;
-  border-radius: 50%;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 1000;
+.card input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 60%;
+  margin-bottom: 10px;
 }
 
-.botao-adicionar:hover {
-  background-color: #3c2a84;
-  transform: scale(1.1);
+.card button {
+  background: #211157;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.card button:hover {
+  background: #3b2291;
+}
+
+.lista-horarios {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.horario-card {
+  background: #fff;
+  border: 1px solid #211157;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #211157;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+}
+
+.btn-apagar {
+  background: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-apagar:hover {
+  background: #b52b27;
 }

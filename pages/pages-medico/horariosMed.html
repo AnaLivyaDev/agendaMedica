@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horários do médico</title>
+    <link rel="stylesheet" href="../../styles/horariosMed.css" />
+  </head>
+  <body>
+    <!--menu onde vai ficar os links para as outras páginas-->
+    <div class="menu">
+      <img src="../../imagens/medical-symbol.png" class="imgLogo" />
+      <div class="links">
+        <!--vai para a página do perfil do paciente-->
+        <a href="../pages-medico/perfilMed.html">perfil</a>
+        <hr />
+        <!--vai para a página das consultas que o paciente marcou-->
+        <a href="../pages-medico/relatorioMed.html">relatório</a>
+        <hr />
+        <!--vai para a página de contatos-->
+        <a href="../pages-medico/contatosMed.html">contatos</a>
+        <hr />
+        <!--vai para a página para marcar os horários-->
+        <a href="../../pages/pages-medico/horariosMed.html">horários</a>
+        <hr />
+        <a href="../../pages/pages-medico/relatorioMed.html" class="linkVoltar"
+          ><img
+            src="../../imagens/botaoVoltar.png"
+            alt="img"
+            class="botaoVoltar"
+        /></a>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="titulo">COLOQUE OS SEUS HORÁRIOS</h1>
+      <div class="card">
+        <h2>Defina seus horários de atendimento</h2>
+
+        <label for="dataConsulta">Escolha a data:</label>
+        <input type="date" id="dataConsulta" />
+
+        <label for="horaConsulta">Escolha o horário:</label>
+        <input type="time" id="horaConsulta" />
+
+        <button id="btnAdicionar">Adicionar Horário</button>
+
+        <h3>Seus horários adicionados:</h3>
+        <div id="listaHorarios" class="lista-horarios"></div>
+
+        <button id="btnSalvar">Salvar Horários</button>
+      </div>
+    </div>
+
+    <script defer src="../../localStorage/horariosMedStorage.js"></script>
+  </body>
+</html>

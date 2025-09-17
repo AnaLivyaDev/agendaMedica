@@ -1,119 +1,116 @@
 const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
 const paciente = JSON.parse(localStorage.getItem("paciente")) || [];
 
-
-
 // Carrega especialidades únicas
-const especialidadesUnicas = [...new Set(medicos.map(m => m.especialidade))];
+const especialidadesUnicas = [...new Set(medicos.map((m) => m.especialidade))];
 
 const selectEspecialidade = document.getElementById("especialidade");
-especialidadesUnicas.forEach(especialidade => {
-    const option = document.createElement("option");
-    option.value = especialidade;
-    option.textContent = especialidade;
-    selectEspecialidade.appendChild(option);
+especialidadesUnicas.forEach((especialidade) => {
+  const option = document.createElement("option");
+  option.value = especialidade;
+  option.textContent = especialidade;
+  selectEspecialidade.appendChild(option);
 });
 
 function carregarMedico() {
-    const especialidadeSelecionada = document.getElementById("especialidade").value;
-    const selectMedico = document.getElementById("medicos");
-    selectMedico.innerHTML = '<option value="">-- Selecione --</option>';
+  const especialidadeSelecionada =
+    document.getElementById("especialidade").value;
+  const selectMedico = document.getElementById("medicos");
+  selectMedico.innerHTML = '<option value="">-- Selecione --</option>';
 
-    const medicosFiltrados = medicos.filter(m => m.especialidade === especialidadeSelecionada);
+  const medicosFiltrados = medicos.filter(
+    (m) => m.especialidade === especialidadeSelecionada
+  );
 
-    medicosFiltrados.forEach(medico => {
-        const option = document.createElement("option");
-        option.value = medico.email;
-        option.textContent = medico.nome;
-        selectMedico.appendChild(option);
-    });
+  medicosFiltrados.forEach((medico) => {
+    const option = document.createElement("option");
+    option.value = medico.email;
+    option.textContent = medico.nome;
+    selectMedico.appendChild(option);
+  });
 
-    document.getElementById("Horas").innerHTML = '<option value="">-- Selecione um médico primeiro --</option>';
+  document.getElementById("Horas").innerHTML =
+    '<option value="">-- Selecione um médico primeiro --</option>';
 }
 
 function carregarHorario() {
-    const emailMedico = document.getElementById("medicos").value;
-    const selectHorario = document.getElementById("horas");
-    selectHorario.innerHTML = '<option value="">-- Selecione --</option>';
+  const emailMedico = document.getElementById("medicos").value;
+  const selectHorario = document.getElementById("horas");
+  selectHorario.innerHTML = '<option value="">-- Selecione --</option>';
 
-    const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
-    const agendamentos = JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
+  const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+  const agendamentos =
+    JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
 
-    // Buscar o médico atual
-    const medico = medicos.find(m => m.email === emailMedico);
+  const medico = medicos.find((m) => m.email === emailMedico);
 
-    if (medico && Array.isArray(medico.horario)) {
-        // Filtrar os horários já ocupados por esse médico
-        const horariosOcupados = agendamentos
-            .filter(a => a.email === emailMedico)
-            .map(a => a.horario);
+  if (medico && Array.isArray(medico.horarios)) {
+    // Pega horários ocupados (formato "data - hora")
+    const horariosOcupados = agendamentos
+      .filter((a) => a.email === emailMedico)
+      .map((a) => `${a.data} - ${a.horario}`);
 
-        // Filtrar apenas os horários livres
-        const horariosDisponiveis = medico.horario.filter(h => !horariosOcupados.includes(h));
+    // Filtra os horários livres
+    const horariosDisponiveis = medico.horarios.filter((h) => {
+      const chave = `${h.data} - ${h.hora}`;
+      return !horariosOcupados.includes(chave);
+    });
 
-        // Exibir os horários disponíveis
-        horariosDisponiveis.forEach(horario => {
-            const option = document.createElement("option");
-            option.value = horario;
-            option.textContent = horario;
-            selectHorario.appendChild(option);
-        });
+    // Exibe os horários disponíveis
+    horariosDisponiveis.forEach((h) => {
+      const option = document.createElement("option");
+      option.value = `${h.data} - ${h.hora}`;
+      option.textContent = `${h.data} - ${h.hora}`;
+      selectHorario.appendChild(option);
+    });
 
-        // Caso todos os horários estejam ocupados
-        if (horariosDisponiveis.length === 0) {
-            const option = document.createElement("option");
-            option.textContent = "Nenhum horário disponível";
-            option.disabled = true;
-            selectHorario.appendChild(option);
-        }
+    if (horariosDisponiveis.length === 0) {
+      const option = document.createElement("option");
+      option.textContent = "Nenhum horário disponível";
+      option.disabled = true;
+      selectHorario.appendChild(option);
     }
+  }
 }
 
-
-
 function salvarAgendamento(event) {
-    event.preventDefault(); // impedir reload do form
+  event.preventDefault();
 
-    const especialidade = document.getElementById("especialidade").value;
-    const emailMedico = document.getElementById("medicos").value;
-    const horario = document.getElementById("horas").value;
+  const especialidade = document.getElementById("especialidade").value;
+  const emailMedico = document.getElementById("medicos").value;
+  const horarioSelecionado = document.getElementById("horas").value;
 
-    if (!especialidade || !emailMedico || !horario) {
-        alert("Preencha todos os campos.");
-        return;
-    }
+  if (!especialidade || !emailMedico || !horarioSelecionado) {
+    alert("Preencha todos os campos.");
+    return;
+  }
 
-    const medico = medicos.find(m => m.email === emailMedico);
-    const paciente = JSON.parse(localStorage.getItem("usuarioLogado"))
+  const [data, hora] = horarioSelecionado.split(" - ");
+  const medico = medicos.find((m) => m.email === emailMedico);
+  const paciente = JSON.parse(localStorage.getItem("usuarioLogado"));
 
-    if (!paciente || !paciente.nome) {
-        alert("Erro: paciente não logado");
-        return;
-    }
+  if (!paciente || !paciente.nome) {
+    alert("Erro: paciente não logado");
+    return;
+  }
 
+  const agendamento = {
+    paciente: paciente.nome,
+    cpfPaciente: paciente.cpf,
+    medico: medico.nome,
+    email: medico.email,
+    especialidade: medico.especialidade,
+    data: data,
+    horario: hora,
+  };
 
-    const agendamento = {
-        paciente: paciente.nome,
-        cpfPaciente: paciente.cpf,
-        medico: medico.nome,
-        email: medico.email,
-        especialidade: medico.especialidade,
-        horario: horario
-    };
+  const agendamentos =
+    JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
+  agendamentos.push(agendamento);
+  localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
 
+  alert("Consulta agendada com sucesso!");
 
-    // Recupera agendamentos anteriores (caso queira salvar vários)
-    const agendamentos = JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
-
-    agendamentos.push(agendamento);
-
-    localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
-
-    alert("Consulta agendada com sucesso!");
-
-    document.getElementById("especialidade").value = "";
-    document.getElementById("medicos").innerHTML = '<option value="">-- Selecione --</option>';
-    document.getElementById("horas").innerHTML = '<option value="">-- Selecione um médico primeiro --</option>';
-
-    window.location.href = "consultasPac.html";
+  document.getElementById("Formulario").reset();
+  window.location.href = "consultasPac.html";
 }
