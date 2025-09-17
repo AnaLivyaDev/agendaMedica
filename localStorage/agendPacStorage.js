@@ -36,17 +36,40 @@ function carregarHorario() {
     const selectHorario = document.getElementById("horas");
     selectHorario.innerHTML = '<option value="">-- Selecione --</option>';
 
+    const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+    const agendamentos = JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
+
+    // Buscar o médico atual
     const medico = medicos.find(m => m.email === emailMedico);
-    if (medico && medico.horario && Array.isArray(medico.horario)) {
-        medico.horario.forEach(horario => {
+
+    if (medico && Array.isArray(medico.horario)) {
+        // Filtrar os horários já ocupados por esse médico
+        const horariosOcupados = agendamentos
+            .filter(a => a.email === emailMedico)
+            .map(a => a.horario);
+
+        // Filtrar apenas os horários livres
+        const horariosDisponiveis = medico.horario.filter(h => !horariosOcupados.includes(h));
+
+        // Exibir os horários disponíveis
+        horariosDisponiveis.forEach(horario => {
             const option = document.createElement("option");
             option.value = horario;
             option.textContent = horario;
             selectHorario.appendChild(option);
         });
-    }
 
+        // Caso todos os horários estejam ocupados
+        if (horariosDisponiveis.length === 0) {
+            const option = document.createElement("option");
+            option.textContent = "Nenhum horário disponível";
+            option.disabled = true;
+            selectHorario.appendChild(option);
+        }
+    }
 }
+
+
 
 function salvarAgendamento(event) {
     event.preventDefault(); // impedir reload do form

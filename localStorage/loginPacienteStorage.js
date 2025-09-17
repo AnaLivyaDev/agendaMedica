@@ -36,7 +36,7 @@ function logarPaciente(event) {
         localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
         alert(`Bem-vindo, ${usuario.nome}!`);
-        window.location.href = "pages/pages-paciente/consultasPac.html"; //vai pra página após o login
+        window.location.href = "../pages/pages-paciente/consultasPac.html"; //vai pra página após o login
     } else {
         alert("cpf ou senha incorretos.")
     }

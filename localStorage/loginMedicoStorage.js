@@ -13,7 +13,7 @@ function logarMedico(event) {
         localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
 
         alert(`Bem-vindo, ${usuario.nome}!`);
-        window.location.href = "../pages/agendPac.html"; // vai pra página ir após login
+        window.location.href = "../pages/pages-medico/relatorioMed.html"; // vai pra página ir após login
     } else {
         alert("crm ou senha incorretos.");
     }
