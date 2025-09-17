@@ -1,145 +1,143 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* para não ter rolagem de tela */
 *::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 body {
-    background: #FFFFFF;
-    display: flex;
-    overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  overflow: hidden;
 }
-
 
 /* estilização da parte de  menu */
 .menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #211157;
-    color: #ffffff;
-    font-size: 30px;
-    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.613);
-    width: 20vw;
-    height: 100vh;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #211157;
+  color: #ffffff;
+  font-size: 30px;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.613);
+  width: 20vw;
+  height: 100vh;
+  flex-direction: column;
+  position: relative;
 }
 
 /* estilização da logo */
 .imgLogo {
-    position: absolute;
-    top: 50px;
-    width: 90px;
+  position: absolute;
+  top: 50px;
+  width: 90px;
 }
 
 /* estilização do menu e links */
 .links {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
 }
 
 .menu a {
-    display: flex;
-    justify-content: flex-start;
-    text-align: start;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
 }
 
 a {
-    text-decoration: none;
-    font-family: 'Courier New', Courier, monospace;
-    color: #FFFFFF;
-    transition: color 0.2s ease;
-    margin-bottom: 30px;
-    margin-top: 20px;
-    font-size: 1.5vw;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  transition: color 0.2s ease;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 1.5vw;
 }
 
 /* transição ao passar o mouse em cima dos links */
 a:hover {
-    color: rgba(255, 255, 255, 0.61);
+  color: rgba(255, 255, 255, 0.61);
 }
 
 .menu hr {
-    width: 15vw;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.379);
+  width: 15vw;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.379);
 }
-
 
 /* estilização do botão que vai voltar para a página de login */
 .botaoVoltar {
-    position: absolute;
-    top: 800px;
-    width: 90px;
-    margin-right: 200px;
-    background-color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    /* Opacidade normal */
-    transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: 800px;
+  width: 90px;
+  margin-right: 200px;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  /* Opacidade normal */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .botaoVoltar:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 /* Container principal dos cards */
 .container {
-    width: 80vw;
-    padding: 40px;
-    overflow-y: auto;
-    background-color: #FFFFFF;
+  width: 80vw;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: #ffffff;
 }
 
 /* Título da seção */
 .titulo {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #211157;
-    font-size: 2.5vw;
-    margin-bottom: 30px;
-    text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #211157;
+  font-size: 2.5vw;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
 /* Container onde os cards ficam */
 #consultas-containers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
-    padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  padding: 10px;
 }
 
 /* Estilo de cada card */
 .card-consulta {
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 280px;
-    transition: transform 0.3s ease;
-    font-family: 'Courier New', Courier, monospace;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  transition: transform 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .card-consulta:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .card-consulta h2 {
-    color: #211157;
-    font-size: 1.2em;
-    margin-bottom: 10px;
+  color: #211157;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .card-consulta p {
-    font-size: 0.95em;
-    margin-bottom: 5px;
-    color: #333;
+  font-size: 0.95em;
+  margin-bottom: 5px;
+  color: #333;
 }

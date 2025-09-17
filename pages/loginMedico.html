@@ -1,47 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login do Médico</title>
-    <link rel="stylesheet" type="text/css" href="../styles/loginMedico.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="../styles/loginMedico.css" />
+  </head>
 
-<body>
+  <body>
     <!--cabeçalho com o título-->
     <div class="cabecalho">
-        <img src="../imagens/medical-symbol.png" class="imgLogo">
-        <h1 class="titulo">Bem vindo de volta! Faça seu login para <br>
-            continuar com seus acompanhamentos.
-        </h1>
-        <img src="../imagens/medicoModelo.png" class="imgFoto">
+      <img src="../imagens/medical-symbol.png" class="imgLogo" />
+      <h1 class="titulo">
+        Bem vindo de volta! Faça seu login para <br />
+        continuar com seus acompanhamentos.
+      </h1>
+      <img src="../imagens/medicoModelo.png" class="imgFoto" />
     </div>
-    <br>
+    <br />
 
     <!--conteúdo com o formulário-->
     <div class="container">
-        <!--todos os botões serão separados em divs-->
+      <!--todos os botões serão separados em divs-->
+      <div class="form-card">
         <form>
-            <div>
-                <label id="Labelcrm" for="crm">CRM</label>
-                <input type="text" id="crm" name="crm" maxlength="7" placeholder="Digite o seu CRM" autocomplete="off"
-                    required>
-            </div>
-            <div>
-                <label id="labelSenha" for="Senha">Senha</label>
-                <input type="password" id="senha" name="senha" maxlength="8" required>
-            </div>
-            <div class="container-botao">
-                <button type="button" class="botaoEntrar" onclick="logarMedico(event)">
-                    <strong>
-                        Entrar
-                    </strong>
-                </button>
-            </div>
+          <div>
+            <label id="Labelcrm" for="crm">CRM</label>
+            <input
+              type="text"
+              id="crm"
+              name="crm"
+              maxlength="7"
+              placeholder="Digite o seu CRM"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <div>
+            <label id="labelSenha" for="Senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              maxlength="8"
+              required
+            />
+          </div>
+          <div class="container-botao">
+            <button
+              type="button"
+              class="botaoEntrar"
+              onclick="logarMedico(event)"
+            >
+              <strong> Entrar </strong>
+            </button>
+          </div>
         </form>
+      </div>
     </div>
     <script defer src="../localStorage/loginMedicoStorage.js"></script>
-</body>
-
+  </body>
 </html>
