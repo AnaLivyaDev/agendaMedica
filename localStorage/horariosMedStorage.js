@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Formata a data para brasileiro antes de salvar
     const dataFormatada = new Date(dataInput).toLocaleDateString("pt-BR");
-
+    
     horarios.push({ data: dataFormatada, hora });
     renderHorarios();
 

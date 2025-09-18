@@ -29,13 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
     consultasDoMedico.forEach((consulta, index) => {
       const card = document.createElement("div");
       card.classList.add("card-consulta");
+      console.log(consulta.data)
       card.innerHTML = `
         <p><strong>#${index + 1}</strong></p>
         <p><strong>Paciente:</strong> ${consulta.paciente}</p>
         <p><strong>Especialidade:</strong> ${consulta.especialidade.toUpperCase()}</p>
-        <p><strong>Data:</strong> ${new Date(consulta.data).toLocaleDateString(
-          "pt-BR"
-        )}</p>
+        <p><strong>Data:</strong> ${consulta.data}</p>
         <p><strong>Horário:</strong> ${consulta.horario}</p>
         <button class="btn-desmarcar" data-index="${index}">Desmarcar</button>
         <hr>

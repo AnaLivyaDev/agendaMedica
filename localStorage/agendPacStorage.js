@@ -116,7 +116,6 @@ function salvarAgendamento(event) {
     JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
   agendamentos.push(agendamento);
   localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
-
   // --- Envio do email ---
   emailjs
     .send("service_y6a6o9w", "template_hw1qurq", {

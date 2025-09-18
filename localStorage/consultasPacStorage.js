@@ -1,3 +1,13 @@
+function formatarData(dataStr) {
+  const partes = dataStr.split("-");
+  if (partes.length === 3) {
+    // Formato esperado: "YYYY-MM-DD"
+    return `${partes[2]}/${partes[1]}/${partes[0]}`; // DD/MM/YYYY
+  } else {
+    return "Data inválida";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("consultas-containers");
 
@@ -28,11 +38,12 @@ document.addEventListener("DOMContentLoaded", function () {
   agendamentosDoPaciente.forEach((consulta) => {
     const card = document.createElement("div");
     card.classList.add("card-consulta");
-
+    console.log(consulta.data)
     card.innerHTML = `
             <h2>Dr(a). ${consulta.medico}</h2>
             <p><strong>Especialidade:</strong> ${consulta.especialidade.toUpperCase()}</p>
             <p><strong>Horário:</strong> ${consulta.horario}</p>
+            <p><strong>Data:</strong> ${consulta.data ? consulta.data : 'Data não informada'}</p>
             <p><strong>Paciente:</strong> ${consulta.paciente}</p>
         `;
 
