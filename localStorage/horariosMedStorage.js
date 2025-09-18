@@ -48,7 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Formata a data para brasileiro antes de salvar
     const dataFormatada = new Date(dataInput).toLocaleDateString("pt-BR");
-    
+
+    // Verifica se já existe essa data e hora
+    const horarioExistente = horarios.some(
+      (h) => h.data === dataFormatada && h.hora === hora
+    );
+
+    if (horarioExistente) {
+      alert("Esse horário já foi adicionado.");
+      return;
+    }
+
     horarios.push({ data: dataFormatada, hora });
     renderHorarios();
 

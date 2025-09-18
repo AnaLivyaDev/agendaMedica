@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.addEventListener("click", (e) => {
         const idx = e.target.getAttribute("data-index");
 
+        // Confirma se o médico quer mesmo desmarcar
+        const confirmar = confirm("Tem certeza que deseja desmarcar esta consulta?");
+        if (!confirmar) return; // se clicar em "Cancelar", não faz nada
+
         // Remove da lista de consultas do médico
         const consultaRemovida = consultasDoMedico[idx];
         consultasDoMedico.splice(idx, 1);

@@ -1,112 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario do Médico</title>
-    <link rel="stylesheet" type="text/css" href="../styles/homeMedico.css" />
-  </head>
 
-  <body>
-    <!--cabeçalho apenas com o título-->
-    <div class="cabecalho">
-      <img class="imgLogo" src="../imagens/medical-symbol.png" />
-      <h1 class="titulo">Bem vindo Doutor(a)</h1>
-      <div class="text">
-        <h5>Aqui, cada detalhe é pensado para o seu bem-estar.</h5>
-      </div>
-      <img src="../imagens/medicoModelo.png" class="imgFoto" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario do Médico</title>
+  <link rel="stylesheet" type="text/css" href="../styles/homeMedico.css" />
+</head>
+
+<body>
+  <!--cabeçalho apenas com o título-->
+  <div class="cabecalho">
+    <img class="imgLogo" src="../imagens/medical-symbol.png" />
+    <h1 class="titulo">Bem vindo Doutor(a)</h1>
+    <div class="text">
+      <h5>Aqui, cada detalhe é pensado para o seu bem-estar.</h5>
     </div>
-    <br />
-    <!--seção que vai ter todo o conteúdo-->
-    <div class="container">
-      <div class="form-card">
-        <!--separação dos botões em divs-->
-        <form>
-          <div>
-            <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
-            <label id="labelNome" for="nome">Nome</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              placeholder="Digite o seu nome"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
-            <label id="labelCrm" for="crm">CRM</label>
-            <input
-              type="text"
-              id="crm"
-              name="crm"
-              maxlength="7"
-              placeholder="Digite o seu CRM"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <label id="labelEmail" for="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Digite seu email com atenção"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <label id="labelSenha" for="senha">Senha</label>
-            <input
-              type="password"
-              id="senha"
-              name="senha"
-              maxlength="8"
-              required
-            />
-          </div>
-          <div>
-            <label id="labelEspecialidade" for="especialidade"
-              >Selecione a sua especialidade</label
-            >
-            <select id="especialidade" required>
-              <option value="cardiologista">cardiologista</option>
-              <option value="dermatologista">dermatologista</option>
-              <option value="neurologista">neurologista</option>
-              <option value="pediatra">pediatra</option>
-              <option value="psiquiatra">psiquiatra</option>
-              <option value="ortopedista">ortopedista</option>
-              <option value="oftamologista">oftamologista</option>
-              <option value="cirurgiaoGeral">cirurgião geral</option>
-            </select>
-          </div>
-          <div class="container-botoes">
-            <button
-              type="button"
-              class="botaoCadastra"
-              onclick="salvarCadastro(event)"
-            >
-              <strong> CADASTRAR </strong>
-            </button>
-            <!--uma div para construir uma linha na vertical que separe os dois botões-->
-            <div class="linhaVertical"></div>
-            <button type="button" class="botaoEntrar">
-              <!--botão que leva o médico para a sua página de login-->
-              <a href="../pages/loginMedico.html">
-                <strong> Entrar </strong>
-              </a>
-            </button>
-          </div>
-        </form>
-      </div>
+    <img src="../imagens/medicoModelo.png" class="imgFoto" />
+  </div>
+  <br />
+  <!--seção que vai ter todo o conteúdo-->
+  <div class="container">
+    <div class="form-card">
+      <!--separação dos botões em divs-->
+      <form>
+        <div>
+          <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
+          <label id="labelNome" for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Digite o seu nome" autocomplete="off" required />
+        </div>
+        <div>
+          <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
+          <label id="labelCrm" for="crm">CRM</label>
+          <input type="text" id="crm" name="crm" maxlength="7" placeholder="Digite o seu CRM" autocomplete="off"
+            required />
+        </div>
+        <div>
+          <label id="labelEmail" for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Digite seu email com atenção" autocomplete="off"
+            required />
+        </div>
+        <div>
+          <label id="labelSenha" for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" maxlength="8" required />
+        </div>
+        <div>
+          <label id="labelEspecialidade" for="especialidade">Selecione a sua especialidade</label>
+          <select id="especialidade" required>
+            <option value="cardiologista">cardiologista</option>
+            <option value="dermatologista">dermatologista</option>
+            <option value="neurologista">neurologista</option>
+            <option value="pediatra">pediatra</option>
+            <option value="psiquiatra">psiquiatra</option>
+            <option value="ortopedista">ortopedista</option>
+            <option value="oftamologista">oftamologista</option>
+            <option value="cirurgiaoGeral">cirurgião geral</option>
+            <option value="cirurgiaoGeral">urologista</option>
+            <option value="cirurgiaoGeral">ginecologista</option>
+          </select>
+        </div>
+        <div class="container-botoes">
+          <button type="button" class="botaoCadastra" onclick="salvarCadastro(event)">
+            <strong> CADASTRAR </strong>
+          </button>
+          <!--uma div para construir uma linha na vertical que separe os dois botões-->
+          <div class="linhaVertical"></div>
+          <button type="button" class="botaoEntrar">
+            <!--botão que leva o médico para a sua página de login-->
+            <a href="../pages/loginMedico.html">
+              <strong> Entrar </strong>
+            </a>
+          </button>
+        </div>
+      </form>
     </div>
-    <!--script para validar as respostas do formulário-->
-    <script defer src="../scripts/scriptMedicoCad.js"></script>
-    <!--script para salvar os valores no localStorage-->
-    <script src="../localStorage/medicoStorage.js"></script>
-  </body>
+  </div>
+  <!--script para validar as respostas do formulário-->
+  <script defer src="../scripts/scriptMedicoCad.js"></script>
+  <!--script para salvar os valores no localStorage-->
+  <script src="../localStorage/medicoStorage.js"></script>
+</body>
+
 </html>

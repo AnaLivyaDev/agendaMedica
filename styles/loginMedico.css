@@ -47,7 +47,7 @@ body {
   position: absolute;
   bottom: 0px;
   width: 800px;
-  height: 550px;
+  height: 500px;
 }
 
 .container {
@@ -59,6 +59,7 @@ body {
   width: 60vw;
   padding: 50px;
 }
+
 /* CARD ao redor do formulário */
 .form-card {
   background-color: #ffffffc9;
@@ -73,6 +74,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 /* estilização do formulário */
 form {
   font-family: Arial, Helvetica, sans-serif;

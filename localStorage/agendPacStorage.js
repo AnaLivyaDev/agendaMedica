@@ -124,6 +124,7 @@ function salvarAgendamento(event) {
       especialidade: medico.especialidade,
       data: data,
       hora: hora,
+      email: medico.email,
     })
     .then(
       (response) => {
