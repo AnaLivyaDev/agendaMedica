@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const medicoLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
+  // verifica se o médico está logado
   if (!medicoLogado || !medicoLogado.email) {
     alert("Você precisa estar logado como médico para ver este relatório.");
     window.location.href = "../../pages/loginMedico.html";
     return;
   }
-
+  // busca os agendamentos
   let agendamentos =
     JSON.parse(localStorage.getItem("agendamentosPaciente")) || [];
 
@@ -14,9 +15,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let consultasDoMedico = agendamentos.filter(
     (consulta) => consulta.email === medicoLogado.email
   );
-
+  // pega o container onde vai está o card
   const relatorioContainer = document.getElementById("relatorio-consultas");
-
+  // a função que vai mostrar os cards
   function renderConsultas() {
     relatorioContainer.innerHTML = "";
 
