@@ -30,28 +30,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Adiciona horário ao card
   btnAdicionar.addEventListener("click", () => {
-    const data = document.getElementById("dataConsulta").value;
+    const dataInput = document.getElementById("dataConsulta").value;
     const hora = document.getElementById("horaConsulta").value;
 
-    if (!data || !hora) {
+    if (!dataInput || !hora) {
       alert("Escolha uma data e um horário.");
       return;
     }
 
-    // Monta objeto Date com a data e hora escolhidas
     const agora = new Date();
-    const dataHoraEscolhida = new Date(`${data}T${hora}`);
+    const dataHoraEscolhida = new Date(`${dataInput}T${hora}`);
 
-    // Validação: não permitir datas/horas passadas
     if (dataHoraEscolhida < agora) {
       alert("Não é permitido cadastrar datas ou horários que já passaram.");
       return;
     }
 
-    horarios.push({ data, hora });
+    // Formata a data para brasileiro antes de salvar
+    const dataFormatada = new Date(dataInput).toLocaleDateString("pt-BR");
+
+    horarios.push({ data: dataFormatada, hora });
     renderHorarios();
 
-    // limpa input hora
     document.getElementById("horaConsulta").value = "";
   });
 

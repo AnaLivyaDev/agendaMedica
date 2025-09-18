@@ -72,7 +72,6 @@ function carregarHorario() {
     }
   }
 }
-
 function salvarAgendamento(event) {
   event.preventDefault();
 
@@ -86,7 +85,8 @@ function salvarAgendamento(event) {
   }
 
   const [data, hora] = horarioSelecionado.split(" - ");
-  const medico = medicos.find((m) => m.email === emailMedico);
+
+  const medicos = JSON.parse(localStorage.getItem("medicos")) || [];
   const paciente = JSON.parse(localStorage.getItem("usuarioLogado"));
 
   if (!paciente || !paciente.nome) {
@@ -94,6 +94,14 @@ function salvarAgendamento(event) {
     return;
   }
 
+  const medico = medicos.find((m) => m.email === emailMedico);
+
+  if (!medico) {
+    alert("Erro: médico não encontrado");
+    return;
+  }
+
+  // Salva o agendamento no localStorage
   const agendamento = {
     paciente: paciente.nome,
     cpfPaciente: paciente.cpf,
@@ -109,8 +117,31 @@ function salvarAgendamento(event) {
   agendamentos.push(agendamento);
   localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
 
-  alert("Consulta agendada com sucesso!");
-
-  document.getElementById("Formulario").reset();
-  window.location.href = "consultasPac.html";
+  // --- Envio do email ---
+  emailjs
+    .send("service_y6a6o9w", "template_hw1qurq", {
+      to_name: medico.nome,
+      from_name: paciente.nome,
+      especialidade: medico.especialidade,
+      data: data,
+      hora: hora,
+    })
+    .then(
+      (response) => {
+        console.log(
+          "Email enviado com sucesso!",
+          response.status,
+          response.text
+        );
+        alert("Consulta agendada e e-mail enviado com sucesso!");
+        document.getElementById("Formulario").reset();
+        window.location.href = "consultasPac.html";
+      },
+      (error) => {
+        console.error("Erro ao enviar email:", error);
+        alert(
+          "Consulta agendada, mas houve um problema ao enviar o e-mail ao médico."
+        );
+      }
+    );
 }

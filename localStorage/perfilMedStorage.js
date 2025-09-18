@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Preenche os campos do perfil
   document.getElementById("perfil-nome").textContent = medicoLogado.nome || "";
-  document.getElementById("perfil-cpf").textContent =
-    medicoLogado.cpf || "Não cadastrado";
+  document.getElementById("perfil-crm").textContent = medicoLogado.crm || "";
   document.getElementById("perfil-email").textContent =
     medicoLogado.email || "";
   document.getElementById("perfil-senha").textContent =

@@ -32,9 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
       card.innerHTML = `
         <p><strong>#${index + 1}</strong></p>
         <p><strong>Paciente:</strong> ${consulta.paciente}</p>
-        <p><strong>CPF:</strong> ${consulta.cpfPaciente}</p>
+        <p><strong>Especialidade:</strong> ${consulta.especialidade.toUpperCase()}</p>
+        <p><strong>Data:</strong> ${new Date(consulta.data).toLocaleDateString(
+          "pt-BR"
+        )}</p>
         <p><strong>Horário:</strong> ${consulta.horario}</p>
-        <p><strong>Especialidade:</strong> ${consulta.especialidade}</p>
         <button class="btn-desmarcar" data-index="${index}">Desmarcar</button>
         <hr>
       `;
