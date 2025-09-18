@@ -79,9 +79,12 @@ a:hover {
   overflow-y: auto;
   background-color: #ffffff;
   /* Ajuste para rolagem */
-  height: 100vh; /* altura máxima visível */
-  overflow-y: auto; /* ativa a rolagem vertical */
-  padding-right: 10px; /*pra barra não encostar no card*/
+  height: 100vh;
+  /* altura máxima visível */
+  overflow-y: auto;
+  /* ativa a rolagem vertical */
+  padding-right: 10px;
+  /*pra barra não encostar no card*/
 }
 
 /* Título da seção */
@@ -129,6 +132,7 @@ a:hover {
 .card-consulta strong {
   color: #372e75;
 }
+
 /* botão desmarcar */
 .btn-desmarcar {
   margin-top: 15px;
@@ -136,8 +140,10 @@ a:hover {
   padding: 8px 16px;
   border: 2px solid #211157;
   border-radius: 8px;
-  background-color: #211157; /* fundo roxo */
-  color: #fff; /* texto branco */
+  background-color: #211157;
+  /* fundo roxo */
+  color: #fff;
+  /* texto branco */
   font-size: 0.95rem;
   font-weight: bold;
   cursor: pointer;
@@ -146,12 +152,39 @@ a:hover {
 }
 
 .btn-desmarcar:hover {
-  background-color: #fff; /* fundo branco */
-  color: #211157; /* texto roxo */
+  background-color: #fff;
+  /* fundo branco */
+  color: #211157;
+  /* texto roxo */
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(33, 17, 87, 0.3);
 }
 
 .btn-desmarcar:active {
+  transform: scale(0.95);
+}
+
+.btn-realizada {
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: 2px solid #28a745;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-realizada:hover {
+  background-color: white;
+  color: #28a745;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.btn-realizada:active {
   transform: scale(0.95);
 }

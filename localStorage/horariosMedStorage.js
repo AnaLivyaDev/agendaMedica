@@ -1,9 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btnAdicionar = document.getElementById("btnAdicionar");
-  const btnSalvar = document.getElementById("btnSalvar");
   const listaHorarios = document.getElementById("listaHorarios");
 
   let horarios = [];
+
+  // Recupera horários salvos do médico logado, se houver
+  const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+  if (usuarioLogado && Array.isArray(usuarioLogado.horarios)) {
+    horarios = usuarioLogado.horarios;
+    renderHorarios(); // Mostra os horários salvos ao carregar a página
+  }
+
+  // Função para salvar os horários no localStorage automaticamente
+  function salvarHorariosNoLocalStorage() {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    if (!usuarioLogado) return;
+
+    usuarioLogado.horarios = horarios;
+
+    let medicos = JSON.parse(localStorage.getItem("medicos")) || [];
+    medicos = medicos.map((m) =>
+      m.crm === usuarioLogado.crm ? usuarioLogado : m
+    );
+
+    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+    localStorage.setItem("medicos", JSON.stringify(medicos));
+  }
 
   // Função para renderizar a lista
   function renderHorarios() {
@@ -22,8 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".btn-apagar").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const idx = e.target.getAttribute("data-index");
+
+        const confirmDelete = confirm("Tem certeza que deseja excluir este horário?");
+        if (!confirmDelete) return;
+
         horarios.splice(idx, 1);
         renderHorarios();
+        salvarHorariosNoLocalStorage(); // Salva após excluir
       });
     });
   }
@@ -46,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Formata a data para brasileiro antes de salvar
+    // Formata a data para o padrão brasileiro
     const dataFormatada = new Date(dataInput).toLocaleDateString("pt-BR");
 
     // Verifica se já existe essa data e hora
@@ -61,30 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     horarios.push({ data: dataFormatada, hora });
     renderHorarios();
+    salvarHorariosNoLocalStorage(); // Salva automaticamente após adicionar
 
+    // Limpa o campo de hora
     document.getElementById("horaConsulta").value = "";
   });
 
-  // Salva no localStorage dentro do médico logado
-  btnSalvar.addEventListener("click", () => {
-    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-    if (!usuarioLogado) {
-      alert("Nenhum médico logado.");
-      return;
-    }
-
-    usuarioLogado.horarios = horarios;
-
-    let medicos = JSON.parse(localStorage.getItem("medicos")) || [];
-    medicos = medicos.map((m) =>
-      m.crm === usuarioLogado.crm ? usuarioLogado : m
-    );
-
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
-    localStorage.setItem("medicos", JSON.stringify(medicos));
-
-    alert("Horários salvos com sucesso!");
-    horarios = [];
-    renderHorarios();
-  });
 });

@@ -99,6 +99,12 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  /* altura máxima visível */
+  overflow-y: auto;
+  /* ativa a rolagem vertical */
+  padding-right: 10px;
+  /*pra barra não encostar no card*/
 }
 
 .titulo {
@@ -108,6 +114,7 @@ a:hover {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.379);
   margin-bottom: 20px;
 }
+
 .card {
   background: #f9f9ff;
   border: 2px solid #211157;
@@ -180,10 +187,12 @@ a:hover {
   background: #d9534f;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 5px 10px;
+  border-radius: 8px;
+  padding: 6px 12px;
   cursor: pointer;
   font-weight: bold;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
 }
 
 .btn-apagar:hover {
