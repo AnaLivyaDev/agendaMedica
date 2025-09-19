@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
             )
         );
 
+
+
         localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
         renderConsultas();
       });

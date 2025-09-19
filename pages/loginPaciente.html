@@ -27,12 +27,14 @@
       <form>
         <div>
           <label id="labelCpf" for="cpf">CPF</label>
-          <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o seu cpf" autocomplete="off"
-            required />
+          <input class="input-cpf" type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o seu cpf"
+            autocomplete="off" required />
         </div>
-        <div>
-          <label id="labelSenha" for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" maxlength="8" required />
+        <div class="password-wrapper">
+          <label id="labelSenha" for="Senha">Senha</label>
+          <input class="input-senha" type="password" id="senha" name="senha" maxlength="8" required />
+          <img src="../imagens/olhoAberto.png" alt="Esconder senha" id="toggleSenha" class="icon-senha"
+            onclick="alternarSenha()" />
         </div>
         <div class="container-botao">
           <button type="button" class="botaoEntrar" onclick="logarPaciente(event)">

@@ -1,100 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario do Paciente</title>
-    <link rel="stylesheet" type="text/css" href="../styles/homePaciente.css" />
-  </head>
 
-  <body>
-    <!--cabeçalho apenas com o título-->
-    <div class="cabecalho">
-      <img class="imgLogo" src="../imagens/medical-symbol.png" />
-      <h1 class="titulo">
-        Seja Bem vindo a <br />
-        nossa Clínica
-      </h1>
-      <div class="text">
-        <h5>A saúde que você confia, o cuidado que você merece.</h5>
-      </div>
-      <img src="../imagens/medicoBebeModelo.png" class="imgFoto" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario do Paciente</title>
+  <link rel="stylesheet" type="text/css" href="../styles/homePaciente.css" />
+</head>
+
+<body>
+  <!--cabeçalho apenas com o título-->
+  <div class="cabecalho">
+    <img class="imgLogo" src="../imagens/medical-symbol.png" />
+    <h1 class="titulo">
+      Seja Bem vindo a <br />
+      nossa Clínica
+    </h1>
+    <div class="text">
+      <h5>A saúde que você confia, o cuidado que você merece.</h5>
     </div>
-    <br />
-    <!--div que vai abranger todo o conteúdo-->
-    <div class="container">
-      <div class="form-card">
-        <!--início do formulário-->
-        <form>
-          <!--os botões serão separados em divs-->
-          <div>
-            <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
-            <label id="labelNome" for="nome">Nome</label>
-            <input
-              type="text"
-              id="nome"
-              placeholder="Digite o seu nome"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
-            <label id="labelCpf" for="cpf">CPF</label>
-            <input
-              type="text"
-              id="cpf"
-              name="cpf"
-              maxlength="14"
-              placeholder="Digite o seu CPF"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <label id="labelEmail" for="email">Email</label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Digite seu email com atenção"
-              autocomplete="off"
-              required
-            />
-          </div>
-          <div>
-            <label id="labelSenha" for="senha">Senha</label>
-            <input
-              type="password"
-              id="senha"
-              name="senha"
-              maxlength="8"
-              required
-            />
-          </div>
-          <div class="container-botoes">
-            <button
-              type="button"
-              class="botaoCadastra"
-              onclick="salvarCadastroPaciente()"
-            >
-              <strong> CADASTRAR </strong>
-            </button>
-            <!--div para contruir uma linha vertical-->
-            <div class="linhaVert"></div>
-            <button type="button" class="botaoEntrar">
-              <!--botão com link para a página de login-->
-              <a href="../pages/loginPaciente.html">
-                <strong class="botaoEntrar"> Entrar </strong>
-              </a>
-            </button>
-          </div>
-        </form>
-      </div>
+    <img src="../imagens/medicoBebeModelo.png" class="imgFoto" />
+  </div>
+  <br />
+  <!--div que vai abranger todo o conteúdo-->
+  <div class="container">
+    <div class="form-card">
+      <!--início do formulário-->
+      <form>
+        <!--os botões serão separados em divs-->
+        <div>
+          <!--todas as inputs irão ter autocomplet off(por motivo de segurança) e required(obrigando a preencher o campo)-->
+          <label id="labelNome" for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Digite o seu nome" autocomplete="off" required />
+        </div>
+        <div>
+          <!--algumas inputs terão maxlength(para colocar um limite de caracteres)-->
+          <label id="labelCpf" for="cpf">CPF</label>
+          <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Digite o seu CPF" autocomplete="off"
+            required />
+        </div>
+        <div>
+          <label id="labelEmail" for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder="Digite seu email com atenção" autocomplete="off"
+            required />
+        </div>
+        <div class="password-wrapper">
+          <label id="labelSenha" for="Senha">Senha</label>
+          <input type="password" id="senha" name="senha" maxlength="8" required />
+          <img src="../imagens/olhoAberto.png" alt="Esconder senha" id="toggleSenha" class="icon-senha"
+            onclick="alternarSenha()" />
+        </div>
+        <div class="container-botoes">
+          <button type="button" class="botaoCadastra" onclick="salvarCadastroPaciente()">
+            <strong> CADASTRAR </strong>
+          </button>
+          <!--div para contruir uma linha vertical-->
+          <div class="linhaVert"></div>
+          <button type="button" class="botaoEntrar">
+            <!--botão com link para a página de login-->
+            <a href="../pages/loginPaciente.html">
+              <strong class="botaoEntrar"> Entrar </strong>
+            </a>
+          </button>
+        </div>
+      </form>
     </div>
-    <!--script para validar as respostas do formulário-->
-    <script defer src="../validacaoDosCadastros/scriptPacienteCad.js"></script>
-    <!--script que chama a função de validar os valores-->
-    <script defer src="../localStorage/pacienteStorage.js"></script>
-  </body>
+  </div>
+  <!--script para validar as respostas do formulário-->
+  <script defer src="../validacaoDosCadastros/scriptPacienteCad.js"></script>
+  <!--script que chama a função de validar os valores-->
+  <script defer src="../localStorage/pacienteStorage.js"></script>
+</body>
+
 </html>

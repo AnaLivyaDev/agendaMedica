@@ -110,6 +110,7 @@ function salvarAgendamento(event) {
     especialidade: medico.especialidade,
     data: data,
     horario: hora,
+    status: 0
   };
 
   const agendamentos =

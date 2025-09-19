@@ -43,3 +43,17 @@ function salvarCadastro(event) {
 
   window.location.href = "../pages/loginMedico.html";
 }
+
+// função que vai alternar a senha de acordo com o olho
+function alternarSenha() {
+  const senhaInput = document.getElementById("senha");
+  const toggleSenha = document.getElementById("toggleSenha");
+
+  const senhaEscondida = senhaInput.type === "text";
+
+  senhaInput.type = senhaEscondida ? "password" : "text";
+
+  toggleSenha.src = senhaEscondida
+    ? "../imagens/olhoAberto.png"
+    : "../imagens/olhoFechado.png";
+}

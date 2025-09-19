@@ -30,9 +30,11 @@
           <input type="text" id="crm" name="crm" maxlength="7" placeholder="Digite o seu CRM" autocomplete="off"
             required />
         </div>
-        <div>
+        <div class="password-wrapper">
           <label id="labelSenha" for="Senha">Senha</label>
           <input type="password" id="senha" name="senha" maxlength="8" required />
+          <img src="../imagens/olhoAberto.png" alt="Esconder senha" id="toggleSenha" class="icon-senha"
+            onclick="alternarSenha()" />
         </div>
         <div class="container-botao">
           <button type="button" class="botaoEntrar" onclick="logarMedico(event)">
