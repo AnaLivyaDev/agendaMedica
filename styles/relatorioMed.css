@@ -130,7 +130,7 @@ a:hover {
 
 .card-consulta-realizar {
   background: #f8f6ff;
-  border-left: 8px solid #01db25;
+  border-left: 8px solid #11b82d;
   border-radius: 10px;
   padding: 20px 25px;
   box-shadow: 0 4px 10px rgba(87, 37, 17, 0.2);
@@ -147,7 +147,10 @@ a:hover {
 }
 
 /* estilização do texto */
-.card-consulta p {
+.card-consulta p,
+.card-consulta-desmar p,
+.card-consulta-realizar p {
+
   margin: 8px 0;
   font-size: 1.1rem;
   line-height: 1.5;
