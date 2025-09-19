@@ -116,6 +116,30 @@ a:hover {
   position: relative;
 }
 
+.card-consulta-desmar {
+  background: #f8f6ff;
+  border-left: 8px solid #b81111;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 10px rgba(87, 37, 17, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #211157;
+  position: relative;
+}
+
+.card-consulta-realizar {
+  background: #f8f6ff;
+  border-left: 8px solid #01db25;
+  border-radius: 10px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 10px rgba(87, 37, 17, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #211157;
+  position: relative;
+}
+
 /* ao passar o mouse */
 .card-consulta:hover {
   transform: scale(1.03);

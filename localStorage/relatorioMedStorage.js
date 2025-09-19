@@ -27,7 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     consultasDoMedico.forEach((consulta, index) => {
       const card = document.createElement("div");
-      card.classList.add("card-consulta");
+      // card.classList.add("card-consulta");
+
+      if (consulta.status == 0) {
+        console.log('teste')
+        card.classList.add("card-consulta");
+      } else if (consulta.status == 1) {
+        console.log('teste')
+        card.classList.add("card-consulta-realizar");
+      } else {
+        console.log('teste')
+        card.classList.add("card-consulta-desmar");
+      }
 
       card.innerHTML = `
         <p><strong>#${index + 1}</strong></p>
@@ -55,19 +66,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const consultaRemovida = consultasDoMedico[idx];
         consultasDoMedico.splice(idx, 1);
 
-        agendamentos = agendamentos.filter(
-          (c) =>
-            !(
-              c.email === consultaRemovida.email &&
+
+        agendamentos = agendamentos.map(
+          (c) => {
+            if (c.email === consultaRemovida.email &&
               c.cpfPaciente === consultaRemovida.cpfPaciente &&
               c.horario === consultaRemovida.horario &&
-              c.data === consultaRemovida.data
-            )
+              c.data === consultaRemovida.data) {
+              return { ...c, status: 2 }
+            }
+            return c;
+          }
         );
 
-
-
         localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
+
+        consultasDoMedico = agendamentos.filter(
+          (c) => c.email === medicoLogado.email);
+
         renderConsultas();
       });
     });
@@ -83,14 +99,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const consultaConcluida = consultasDoMedico[idx];
         consultasDoMedico.splice(idx, 1);
 
-        agendamentos = agendamentos.filter(
-          (c) =>
-            !(
-              c.email === consultaConcluida.email &&
+
+        agendamentos = agendamentos.map(
+          (c) => {
+            if (c.email === consultaConcluida.email &&
               c.cpfPaciente === consultaConcluida.cpfPaciente &&
               c.horario === consultaConcluida.horario &&
-              c.data === consultaConcluida.data
-            )
+              c.data === consultaConcluida.data) {
+              return { ...c, status: 1 }
+            }
+            return c;
+          }
         );
 
         // (Opcional) salvar em "historicoConsultas"
@@ -99,6 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("historicoConsultas", JSON.stringify(historico));
 
         localStorage.setItem("agendamentosPaciente", JSON.stringify(agendamentos));
+
+        consultasDoMedico = agendamentos.filter(
+          (c) => c.email === medicoLogado.email);
         renderConsultas();
       });
     });
